@@ -8,6 +8,28 @@ Tutorial para comenzar a usar IBM Cognos Dashboard Embedded
 * [Git](https://git-scm.com/downloads)
 * [IBM Cloud Account](https://cloud.ibm.com)
 * [Node v6.9.0 or higher](https://nodejs.org/en/)
+* Precisamos descargar el archivo [CognosApi.js](https://dde-us-south.analytics.ibm.com/daas/CognosApi.js).
+Este archivo lo incluimos en nuestro archivo html de la siguiente manera:
+```bash
+<html>
+
+  <head>
+    ...
+    ...
+    ...
+  </head>
+
+  <body>
+    <div id="dashboardPlace">
+      ...
+    </div>
+
+    <script src="javascripts/CognosApi.js"></script>
+
+  </body>
+</html>
+```
+* The CognosApi.js file is available from the Cognos Dashboard Embedded service instance:
 
 ### 1er paso - IBM Cloud
 Ingresamos a IBM Cloud, con nuestro usuario y creamos un servicio de [IBM Cognos Dashboard Embedded](https://cloud.ibm.com/catalog/services/ibm-cognos-dashboard-embedded).
@@ -27,7 +49,7 @@ Clonamos el proyecto: ``` $ git clone ```
 Instalamos todas las librerias requeridas: ``` $ npm install ```
 
 
-### 3er paso - IBM Cognos Dashboard Embedded, sesion. 
+### 3er paso - IBM Cognos Dashboard Embedded, sesion.
 (El siguiente codigo se encuentra en el archivo app.js.)
 
 El uso de este servicio es mediante sesiones. Cada sesion es de 60 minutos.
@@ -39,7 +61,7 @@ var authorization_key = Buffer.from(process.env.CLIENT_ID+":"+process.env.CLIENT
 console.log(authorization_key);
 ```
 
-En el siguiente fragmento creamos un endpoint (a ser llamado del lado del cliente) donde se realiza la llamada a la API para obtener un codigo de una nueva sesion. 
+En el siguiente fragmento creamos un endpoint (a ser llamado del lado del cliente) donde se realiza la llamada a la API para obtener un codigo de una nueva sesion.
 ```bash
 app.post("/api/dde/session", function(request, response) {
   var options = {
@@ -90,18 +112,15 @@ Ejemplo de respuesta:
   }
 ```
 
-### 4to paso - Dashboard. 
+### 4to paso - Dashboard.
 
 El procedimiento para crear el dashboard es el siguiente:
 1. Crear una nueva sesion.
 2. Inicializar el framework de la API.
-3. Crear un Dashboard. 
+3. Crear un Dashboard.
 4. Cargar datos.
-5. Modelar datos.
-
-Extras.
-3.1.  Abrir un Dashboard existente.
-6. Guardar un Dashboard.
+5. Modelar los datos
+6. Guardar y abrir Dashboards.
 
 #### 4.1 - Crear una nueva sesion
 Lo siguiente se ejecuta apretando el siguiente botón.
@@ -135,7 +154,7 @@ async function createNewSession() {
 	}
 }
 ```
-  
+
 #### 4.2 - Se inicializa el framework de la API.
 Podemos ver que invocamos a la funcion createAndInitApiFramework.
 
@@ -147,14 +166,14 @@ Podemos ver que invocamos a la funcion createAndInitApiFramework.
   node: document.getElementById('containerDivId') // containerDivId
 });
 ```
-cognosRootURL: Hace referencia a la API_endpoint_url de nuestras credenciales. 
-sessionCode: Hace referencia al codigo de la sesion que nos envío el servidor. 
+cognosRootURL: Hace referencia a la API_endpoint_url de nuestras credenciales.
+sessionCode: Hace referencia al codigo de la sesion que nos envío el servidor.
 initTimeout: Es la cantidad de milisegundos que esperamos por una respuesta.
 node: Hace referencia al lugar en la pagina HTML donde se va a embeber el dashboard.
 
-Notaremos que aparece un gif de loading. 
+Notaremos que aparece un gif de loading.
 
-  
+
 #### 4.3 - Se crea un dashboard.
 Por ultimo se invoca la funcion createDashboard()
 
@@ -171,28 +190,25 @@ async function createDashboard()  {
 }
 ```
 
-##### Este será el resultado: 
+##### Este será el resultado:
 ![](fotos/Select-template.png)
 
 ##### Luego se elige un template y se comienza a trabajar con los datos:
 ![](fotos/Dashboard-created.png)
 
-#### 4.3.1 - Se abre un Dashboard existente.
-
 #### 4.4 - Se carga un archivo de datos.
 
-Para agregar un archivo de datos al dashboard es necesario ejecutar el siguiente metodo:
-  
+Para agregar un archivo de datos al dashboard es necesario ejecutar el metodo ```addSources()``` provisto por la API:
+
 ```bash
 this.dashboardAPI.addSources([{
   module: sampleModule,
   name: 'Test Source',
   id: 'myUniqueId123'
 }])
-
 ```
 Donde name es el nombre con el que el archivo se mostrará en el dashboard y el id es como se lo va a identificar.
-![](fotos/Data-source-added.png) 
+![](fotos/Data-source-added.png)
 <br />
 El campo module hace referencia a un objeto java que tiene las referencias al archivo de datos, contiene los siguientes campos:
 ```bash
@@ -280,21 +296,71 @@ module = {
 "identifier": "moduleId"
 ```
 
-Para cargar un archivo de datos, hay varias maneras:
-* En el botón de + que está al lado de donde dice selected sources:
+##### Para cargar un archivo de datos, hay tres alternativas maneras:
+1.  En el botón de + que está al lado de donde dice selected sources:
 ![](fotos/Add-data-source.png)
 <br />
-En este caso cuando se da click al botón con el simbolo de "+" y se dispara un evento, cuando se registra ese evento ahí se debería modelar como se quisiera: abriendo un modal con distintos archivos ya cargados y con los valores anteriores ya definidos o abriendo un explorador de archivos y cargar estos valores dinamicamente.
-  
-* Dandole click a un boton externo al Dashboard (Add data) donde agregue un conjunto de datos con todos los valores mencionados anteriormente ya definidos. 
+En este caso cuando se da click al botón con el simbolo de "+" y se dispara un evento, cuando se registra ese evento ahí se debería modelar como se quisiera: abriendo un modal con distintos archivos ya cargados y con los valores anteriores ya definidos o abriendo un explorador de archivos y cargar estos valores dinamicamente:
+
+###### Eventos
+```bash
+  dashboardAPI.on('addSource:clicked', sourceClicked)
+```
+El metodo on() nos registra a distintos eventos, en particular aca nos estamos registrando al evento de cuando se clickea el boton para agregar fuentes de datos.
+Luego en la funcion sourceClicked, se implementar lo que el usuario quiera. En este tutorial cargaremos un archivo previamente definido.
+
+Podríamos si quisieramos modelar otros eventos como por ejemplo, cuando se modifica el dashboard.
+```bash
+  dashboardAPI.on(dashboardAPI.EVENTS.DIRTY, onModified);
+```
+
+De la misma manera que nos registramos a eventos, invocando el metodo ```off()``` anulamos el registro del evento pasado como atributo.
+Por ejemplo:
+```bash
+  dashboardAPI.off(dashboardAPI.EVENTS.DIRTY, onModified);
+```
+
+2. Dandole click a un boton externo al Dashboard (Add data) donde agregue un conjunto de datos con todos los valores mencionados anteriormente ya definidos.
 <p align="center">
   <img src="fotos/Add-data-button.png" width="30%" height="30%">
 </p>
 
-#### 4.4 - Se guarda un dashboard.
-
-#### 5 - Usar el dashboard.
-Basicámente se basa en drag and drop. 
+#### 4.5 - Modelar los datos.
+Basicámente se basa en drag and drop.
 ![Cognos Dashboard Embedded Demo](https://j.gifs.com/JyZj7D.gif)
+
+#### 4.6 - Guardar y abrir un dashboard.
+Cada dashboard tiene un conjunto de especificaciones, que va cambiando a medida que se realizan modificaciones y se trabaja con el dashboard. Estas especificaciones las podemos obtener llamando a la API del servicio mediante usando
+``` bash
+  async function saveDashboard()  {
+    if (this.api.dashboard != null) {
+      var dashboardSpec = this.dashboardAPI.getSpec();
+
+      // Conectarse con alguna base de datos a eleccion: MongoDB, Cloudant...
+      // Guardar dashboardSpec
+
+      console.log('Dashboard was successfully saved.');
+    } else {
+      console.log('Dashboard was not saved.');
+    }
+  }
+```
+
+Luego si persisitmos los datos retornados por ese metodo, invocando la funcion ```openDashboard()``` podriamos llegar a seguir modificando el mismo dashboard.
+
+```bash
+  async function openDashboard()  {
+    // Pedirle a a la base de datos donde guardamos las spec de los otros dashboards. Podria ser MongoDB, Cloudant...
+    try {
+      this.dashboardAPI = await this.api.dashboard.openDashboard({
+        dashboardSpec: "dashboard elegido"
+      })
+      console.log("Dashboard successfully loaded")
+    } catch (e) {
+      console.log('Unable to load that Dashboard: ' + e.message);
+      throw e;
+    }
+  }
+```
 
 

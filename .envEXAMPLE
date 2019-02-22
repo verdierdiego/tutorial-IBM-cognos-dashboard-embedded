@@ -1,0 +1,12 @@
+PORT=3000
+
+# LOCAL DEPLOYMENT
+WEB_DOMAIN=http://localhost:3000
+
+# WEB DEPLOYMENT
+# WEB_DOMAIN=https://{app-name}.mybluemix.net
+
+API_KEY=Y O U R  A P I  K E Y
+API_ENDPOINT_URL=Y O U R  A P I  E N D P O I N T  U R L
+CLIENT_ID=Y O U R  C L I E N T  I D
+CLIENT_SECRET=Y O U R  C L I E N T  S E C R E T

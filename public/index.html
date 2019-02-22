@@ -1,0 +1,38 @@
+<html>
+
+<head>
+  <base href="/">
+  <title>Cognos Dashboard Example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta property="og:image" content="conversation.svg" />
+  <meta property="og:title" content="Conversation Chat Simple" />
+  <meta property="og:description" content=""
+  />
+  <link rel="shortcut icon" href="favicon.png" type="image/png">
+</head>
+
+<body>
+  <div id="botones">
+    <button onclick="Dashboard.createSession()">
+      Create Session
+    </button>
+    <button onclick="Dashboard.addSource()">
+      Add Data
+    </button>
+    <button onclick="Dashboard.saveDashboard()">
+      Save Dashboard
+    </button>
+    <button onclick="Dashboard.openDashboard()">
+      Open Dashboard
+    </button>
+    <div id="dashboardPlace">
+    </div>
+  </div>
+
+  <script src="javascripts/CognosApi.js"></script>
+  <script src="javascripts/Dashboard.js"></script>
+
+</body>
+
+</html>
