@@ -1,7 +1,7 @@
 # Tutorial IBM Cognos Dashboard Embedded
 Tutorial para comenzar a usar IBM Cognos Dashboard Embedded
 
-## Architecture
+## Arquitectua de la solución
 ![](fotos/cognos-architecture.png)
 
 ## Prerequisites
@@ -11,14 +11,15 @@ Tutorial para comenzar a usar IBM Cognos Dashboard Embedded
 
 ### 1er paso - IBM Cloud
 Ingresamos a IBM Cloud, con nuestro usuario y creamos un servicio de [IBM Cognos Dashboard Embedded](https://cloud.ibm.com/catalog/services/ibm-cognos-dashboard-embedded).
-![](fotos/CDE-logo.png)
+<p align="center">
+	<img src="fotos/CDE-logo.png" width="30%" height="30%">
+</p>
 
 Luego de crear el servicio, creamos credenciales para la instancia y anotamos los siguientes campos para tenerlos a mano:
 * API_endpoint_url
 * Apikey
 * Client_id
 * Client_secret
-
 
 ### 2do paso - Configurar ambiente
 Clonamos el proyecto: ``` $ git clone ```
@@ -92,17 +93,21 @@ Ejemplo de respuesta:
 ### 4to paso - Dashboard. 
 
 El procedimiento para crear el dashboard es el siguiente:
-1- Crear una nueva sesion.
-2- Inicializar el framework de la API.
-3- Crear un Dashboard. 
-4- Cargar datos.
-5- Modelar datos.
+1. Crear una nueva sesion.
+2. Inicializar el framework de la API.
+3. Crear un Dashboard. 
+4. Cargar datos.
+5. Modelar datos.
 
 Extras.
-3.1- Abrir un Dashboard existente.
-6- Guardar un Dashboard.
+3.1.  Abrir un Dashboard existente.
+6. Guardar un Dashboard.
 
 #### 4.1 - Crear una nueva sesion
+Lo siguiente se ejecuta apretando el siguiente botón.
+![](fotos/cognos-architecture.png)
+<br/>
+¿Que hacemos en esta etapa?
 Realizamos una llamada el endpoint que creamos en el paso 3 y obtenemos el codigo.
 
 ```bash
