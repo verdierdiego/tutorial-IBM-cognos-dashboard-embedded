@@ -9,7 +9,7 @@ Tutorial para comenzar a usar IBM Cognos Dashboard Embedded
 * [IBM Cloud Account](https://cloud.ibm.com)
 * [Node v6.9.0 or higher](https://nodejs.org/en/)
 
-### 1er paso - IBM Cloud
+## 1er paso - IBM Cloud
 Ingresamos a IBM Cloud, con nuestro usuario y creamos un servicio de [IBM Cognos Dashboard Embedded](https://cloud.ibm.com/catalog/services/ibm-cognos-dashboard-embedded).
 <p align="center">
 	<img src="fotos/CDE-logo.png" width="30%" height="30%">
@@ -21,13 +21,13 @@ Luego de crear el servicio, creamos credenciales para la instancia y anotamos lo
 * Client_id
 * Client_secret
 
-### 2do paso - Configurar ambiente
+## 2do paso - Configurar ambiente
 Clonamos el proyecto: ``` $ git clone ```
 <br />
 Instalamos todas las librerias requeridas: ``` $ npm install ```
 
 
-### 3er paso - IBM Cognos Dashboard Embedded, sesion. 
+## 3er paso - IBM Cognos Dashboard Embedded, sesion. 
 (El siguiente codigo se encuentra en el archivo app.js.)
 
 El uso de este servicio es mediante sesiones. Cada sesion es de 60 minutos.
@@ -90,7 +90,7 @@ Ejemplo de respuesta:
   }
 ```
 
-### 4to paso - Dashboard. 
+## 4to paso - Dashboard. 
 
 El procedimiento para crear el dashboard es el siguiente:
 1. Crear una nueva sesion.
@@ -103,7 +103,7 @@ Extras.
 3.1.  Abrir un Dashboard existente.
 6. Guardar un Dashboard.
 
-#### 4.1 - Crear una nueva sesion
+### 4.1 - Crear una nueva sesion
 Lo siguiente se ejecuta apretando el siguiente botón.
 <p align="center">
   <img src="fotos/Create-Session-button.png" width="30%" height="30%">
@@ -136,7 +136,7 @@ async function createNewSession() {
 }
 ```
   
-#### 4.2 - Se inicializa el framework de la API.
+### 4.2 - Se inicializa el framework de la API.
 Podemos ver que invocamos a la funcion createAndInitApiFramework.
 
 ```bash
@@ -155,7 +155,7 @@ node: Hace referencia al lugar en la pagina HTML donde se va a embeber el dashbo
 Notaremos que aparece un gif de loading. 
 
   
-#### 4.3 - Se crea un dashboard.
+### 4.3 - Se crea un dashboard.
 Por ultimo se invoca la funcion createDashboard()
 
 ```bash
@@ -179,7 +179,7 @@ async function createDashboard()  {
 
 #### 4.3.1 - Se abre un Dashboard existente.
 
-#### 4.4 - Se carga un archivo de datos.
+### 4.4 - Se carga un archivo de datos.
 
 Para agregar un archivo de datos al dashboard es necesario ejecutar el siguiente metodo:
   
@@ -291,9 +291,9 @@ En este caso cuando se da click al botón con el simbolo de "+" y se dispara un 
   <img src="fotos/Add-data-button.png" width="30%" height="30%">
 </p>
 
-#### 4.4 - Se guarda un dashboard.
+### 4.4 - Se guarda un dashboard.
 
-#### 5 - Usar el dashboard.
+## 5 - Usar el dashboard.
 Basicámente se basa en drag and drop. 
 ![Cognos Dashboard Embedded Demo](https://j.gifs.com/JyZj7D.gif)
 
