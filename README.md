@@ -31,7 +31,7 @@ Este archivo lo incluimos en nuestro archivo html de la siguiente manera:
 ```
 * The CognosApi.js file is available from the Cognos Dashboard Embedded service instance:
 
-### 1er paso - IBM Cloud
+## 1er paso - IBM Cloud
 Ingresamos a IBM Cloud, con nuestro usuario y creamos un servicio de [IBM Cognos Dashboard Embedded](https://cloud.ibm.com/catalog/services/ibm-cognos-dashboard-embedded).
 <p align="center">
 	<img src="fotos/CDE-logo.png" width="30%" height="30%">
@@ -43,7 +43,7 @@ Luego de crear el servicio, creamos credenciales para la instancia y anotamos lo
 * Client_id
 * Client_secret
 
-### 2do paso - Configurar ambiente
+## 2do paso - Configurar ambiente
 Clonamos el proyecto: ``` $ git clone ```
 <br />
 Instalamos todas las librerias requeridas: ``` $ npm install ```
@@ -122,7 +122,7 @@ El procedimiento para crear el dashboard es el siguiente:
 5. Modelar los datos
 6. Guardar y abrir Dashboards.
 
-#### 4.1 - Crear una nueva sesion
+### 4.1 - Crear una nueva sesion
 Lo siguiente se ejecuta apretando el siguiente botón.
 <p align="center">
   <img src="fotos/Create-Session-button.png" width="30%" height="30%">
