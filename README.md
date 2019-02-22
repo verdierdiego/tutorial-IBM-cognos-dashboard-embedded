@@ -105,7 +105,7 @@ Extras.
 
 #### 4.1 - Crear una nueva sesion
 Lo siguiente se ejecuta apretando el siguiente botón.
-![](fotos/Create-session-button.png)
+![](fotos/Create-Session-button.png)
 <br/>
 ¿Que hacemos en esta etapa?
 Realizamos una llamada el endpoint que creamos en el paso 3 y obtenemos el codigo.
