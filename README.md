@@ -1,10 +1,10 @@
 # Tutorial IBM Cognos Dashboard Embedded
 Tutorial para comenzar a usar IBM Cognos Dashboard Embedded
 
-## Arquitectua de la solución
+## Arquitectura de la solución
 ![](fotos/cognos-architecture.png)
 
-## Prerequisites
+## Pre-requisitos
 * [Git](https://git-scm.com/downloads)
 * [IBM Cloud Account](https://cloud.ibm.com)
 * [Node v6.9.0 or higher](https://nodejs.org/en/)
@@ -49,7 +49,7 @@ Clonamos el proyecto: ``` $ git clone ```
 Instalamos todas las librerias requeridas: ``` $ npm install ```
 
 
-### 3er paso - IBM Cognos Dashboard Embedded, sesion.
+## 3er paso - IBM Cognos Dashboard Embedded, sesion.
 (El siguiente codigo se encuentra en el archivo app.js.)
 
 El uso de este servicio es mediante sesiones. Cada sesion es de 60 minutos.
@@ -112,7 +112,7 @@ Ejemplo de respuesta:
   }
 ```
 
-### 4to paso - Dashboard.
+## 4to paso - Dashboard.
 
 El procedimiento para crear el dashboard es el siguiente:
 1. Crear una nueva sesion.
@@ -155,7 +155,7 @@ async function createNewSession() {
 }
 ```
 
-#### 4.2 - Se inicializa el framework de la API.
+### 4.2 - Se inicializa el framework de la API.
 Podemos ver que invocamos a la funcion createAndInitApiFramework.
 
 ```bash
@@ -174,7 +174,7 @@ node: Hace referencia al lugar en la pagina HTML donde se va a embeber el dashbo
 Notaremos que aparece un gif de loading.
 
 
-#### 4.3 - Se crea un dashboard.
+### 4.3 - Se crea un dashboard.
 Por ultimo se invoca la funcion createDashboard()
 
 ```bash
@@ -196,7 +196,7 @@ async function createDashboard()  {
 ##### Luego se elige un template y se comienza a trabajar con los datos:
 ![](fotos/Dashboard-created.png)
 
-#### 4.4 - Se carga un archivo de datos.
+### 4.4 - Se carga un archivo de datos.
 
 Para agregar un archivo de datos al dashboard es necesario ejecutar el metodo ```addSources()``` provisto por la API:
 
@@ -302,7 +302,7 @@ module = {
 <br />
 En este caso cuando se da click al botón con el simbolo de "+" y se dispara un evento, cuando se registra ese evento ahí se debería modelar como se quisiera: abriendo un modal con distintos archivos ya cargados y con los valores anteriores ya definidos o abriendo un explorador de archivos y cargar estos valores dinamicamente:
 
-###### Eventos
+##### Eventos
 ```bash
   dashboardAPI.on('addSource:clicked', sourceClicked)
 ```
