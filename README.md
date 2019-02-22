@@ -1,7 +1,7 @@
 # Tutorial IBM Cognos Dashboard Embedded
 Tutorial para comenzar a usar IBM Cognos Dashboard Embedded
 
-## Architecture
+## Arquitectua de la solución
 ![](fotos/cognos-architecture.png)
 
 ## Prerequisites
@@ -11,14 +11,15 @@ Tutorial para comenzar a usar IBM Cognos Dashboard Embedded
 
 ### 1er paso - IBM Cloud
 Ingresamos a IBM Cloud, con nuestro usuario y creamos un servicio de [IBM Cognos Dashboard Embedded](https://cloud.ibm.com/catalog/services/ibm-cognos-dashboard-embedded).
-![](fotos/CDE-logo.png)
+<p align="center">
+	<img src="fotos/CDE-logo.png" width="30%" height="30%">
+</p>
 
 Luego de crear el servicio, creamos credenciales para la instancia y anotamos los siguientes campos para tenerlos a mano:
 * API_endpoint_url
 * Apikey
 * Client_id
 * Client_secret
-
 
 ### 2do paso - Configurar ambiente
 Clonamos el proyecto: ``` $ git clone ```
@@ -92,17 +93,22 @@ Ejemplo de respuesta:
 ### 4to paso - Dashboard. 
 
 El procedimiento para crear el dashboard es el siguiente:
-1- Crear una nueva sesion.
-2- Inicializar el framework de la API.
-3- Crear un Dashboard. 
-4- Cargar datos.
-5- Modelar datos.
+1. Crear una nueva sesion.
+2. Inicializar el framework de la API.
+3. Crear un Dashboard. 
+4. Cargar datos.
+5. Modelar datos.
 
 Extras.
-3.1- Abrir un Dashboard existente.
-6- Guardar un Dashboard.
+3.1.  Abrir un Dashboard existente.
+6. Guardar un Dashboard.
 
 #### 4.1 - Crear una nueva sesion
+Lo siguiente se ejecuta apretando el siguiente botón.
+<p align="center">
+  <img src="fotos/Add-data-button.png" width="30%" height="30%">
+</p>
+¿Que hacemos en esta etapa?
 Realizamos una llamada el endpoint que creamos en el paso 3 y obtenemos el codigo.
 
 ```bash
@@ -280,10 +286,11 @@ Para cargar un archivo de datos, hay varias maneras:
 <br />
 En este caso cuando se da click al botón con el simbolo de "+" y se dispara un evento, cuando se registra ese evento ahí se debería modelar como se quisiera: abriendo un modal con distintos archivos ya cargados y con los valores anteriores ya definidos o abriendo un explorador de archivos y cargar estos valores dinamicamente.
   
-* Dandole click a un boton externo al Dashboard donde agregue un conjunto de datos con todos los valores mencionados anteriormente ya definidos. 
-  
-![](fotos/Add-data-button.png)
-<br />
+* Dandole click a un boton externo al Dashboard (Add data) donde agregue un conjunto de datos con todos los valores mencionados anteriormente ya definidos. 
+<p align="center">
+  <img src="fotos/Add-data-button.png" width="30%" height="30%">
+</p>
+
 #### 4.4 - Se guarda un dashboard.
 
 #### 5 - Usar el dashboard.
