@@ -47,7 +47,23 @@ Luego de crear el servicio, creamos credenciales para la instancia y anotamos lo
 Clonamos el proyecto: ``` $ git clone ```
 <br />
 Instalamos todas las librerias requeridas: ``` $ npm install ```
+La libreria "request" no se instala automaticamente, por lo tanto ejecutamos le siguiente comando para instalarla: ```$npm install request --save```. Esta libreria se usa para realizar llamadas http. 
+Vemos que hay un archivo .envEXAMPLE que tiene los siguientes campos:
+```bash
+PORT=3000
 
+# LOCAL DEPLOYMENT
+WEB_DOMAIN=http://localhost:3000
+
+# WEB DEPLOYMENT
+# WEB_DOMAIN=https://{app-name}.mybluemix.net
+
+API_KEY=Y O U R  A P I  K E Y
+API_ENDPOINT_URL=Y O U R  A P I  E N D P O I N T  U R L
+CLIENT_ID=Y O U R  C L I E N T  I D
+CLIENT_SECRET=Y O U R  C L I E N T  S E C R E T
+```
+Primero que nada, copiamos ese archivo y lo pegamos en el mismo directorio con el nombre: ```.env```. Luego modificamos los campos de API_KEY, API_ENDPOINT_URL, CLIENT_ID y CLIENT_SECRET con los valores de nuestras credenciales. 
 
 ## 3er paso - IBM Cognos Dashboard Embedded, sesion.
 (El siguiente codigo se encuentra en el archivo app.js.)
