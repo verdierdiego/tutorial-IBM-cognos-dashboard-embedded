@@ -11,7 +11,8 @@ var Dashboard = (function (){
     initialize: createAndInitApiFramework,
     create: createDashboard,
     addSource: addSource,
-    getSpec: getSpec
+    saveDashboard: saveDashboard,
+    openDashboard: openDashboard
   };
 
   async function createNewSession() {
