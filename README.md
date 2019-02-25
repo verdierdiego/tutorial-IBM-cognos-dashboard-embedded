@@ -9,7 +9,7 @@ Tutorial para comenzar a usar IBM Cognos Dashboard Embedded
 * [IBM Cloud Account](https://cloud.ibm.com)
 * [Node v6.9.0 or higher](https://nodejs.org/en/)
 * Precisamos descargar el archivo [CognosApi.js](https://dde-us-south.analytics.ibm.com/daas/CognosApi.js).
-Este archivo lo incluimos en nuestro archivo html de la siguiente manera:
+Este archivo lo incluimos en nuestro archivo html de la siguiente manera. (Ya está descargado y se encuentra en la siguiente ruta: public/javascripts)
 ```bash
 <html>
 
